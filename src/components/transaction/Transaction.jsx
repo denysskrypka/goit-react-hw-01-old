@@ -1,26 +1,47 @@
 import css from "./Transaction.module.css";
-
-const Transaction = ({ items }) => {
+import clsx from "clsx";
+const TransactionHistory = ({ items }) => {
   return (
-    <table className={css.transactionTable}>
+    <table className={css.table_container}>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+          <th className={css.thead_row_item}>Type</th>
+          <th className={css.thead_row_item}>Amount</th>
+          <th className={css.thead_row_item}>Currency</th>
         </tr>
       </thead>
+
       <tbody>
-        {items.map(({ id, type, amount, currency }) => (
+        {items.map(({ id, type, amount, currency }, index) => (
           <tr key={id}>
-            <td>{type}</td>
-            <td>{amount}</td>
-            <td>{currency}</td>
+            <td
+              className={clsx(
+                css.tbody_row_item,
+                index % 2 === 0 ? null : css.even_color
+              )}
+            >
+              {type}
+            </td>
+            <td
+              className={clsx(
+                css.tbody_row_item,
+                index % 2 === 0 ? null : css.even_color
+              )}
+            >
+              {amount}
+            </td>
+            <td
+              className={clsx(
+                css.tbody_row_item,
+                index % 2 === 0 ? null : css.even_color
+              )}
+            >
+              {currency}
+            </td>
           </tr>
         ))}
       </tbody>
     </table>
   );
 };
-
-export default Transaction;
+export default TransactionHistory;

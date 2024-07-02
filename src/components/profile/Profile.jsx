@@ -1,29 +1,38 @@
 import css from "./Profile.module.css";
-const Profile = ({ name, tag, location, image, stats }) => {
-  return (
-    <div className={css.divProfile}>
-      <div className={css.divCard}>
-        <img src={image} alt="User avatar" className={css.imgUser} />
-        <p className={css.pCardName}>{name}</p>
-        <p className={css.pCard}>@{tag}</p>
-        <p className={css.pCard}>{location}</p>
-      </div>
 
-      <ul className={css.ulStats}>
-        <li className={css.liStats}>
-          <span className={css.spanTitle}>Followers</span>
-          <span className={css.spanInfo}>{stats.followers}</span>
+const Profile = ({
+  userData: {
+    username,
+    tag,
+    location,
+    avatar,
+    stats: { followers, views, likes },
+  },
+}) => {
+  return (
+    <div className={css.container}>
+      <div className={css.profile_info}>
+        <img className={css.profile_img} src={avatar} alt="user avatar" />
+        <p className={css.profile_username}>{username}</p>
+        <p className={css.profile_tag}>@{tag}</p>
+        <p className={css.profile_location}>{location}</p>
+      </div>
+      <ul className={css.profile_stats}>
+        <li className={css.profile_list_item}>
+          <span className={css.profile_list_title}>Followers</span>
+          <span className={css.profile_list_text}>{followers}</span>
         </li>
-        <li className={css.liStats}>
-          <span className={css.spanTitle}>Views</span>
-          <span className={css.spanInfo}>{stats.views}</span>
+        <li className={css.profile_list_item}>
+          <span className={css.profile_list_title}>Views</span>
+          <span className={css.profile_list_text}>{views}</span>
         </li>
-        <li className={css.liStats}>
-          <span className={css.spanTitle}>Likes</span>
-          <span className={css.spanInfo}>{stats.likes}</span>
+        <li className={css.profile_list_item}>
+          <span className={css.profile_list_title}>Likes</span>
+          <span className={css.profile_list_text}>{likes}</span>
         </li>
       </ul>
     </div>
   );
 };
+
 export default Profile;

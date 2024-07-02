@@ -1,23 +1,22 @@
-.transactionTable {
-  width: 200px;
-  border-collapse: collapse;
+.table_container {
+  max-width: 1202px;
+  text-align: center;
   margin: 0 auto;
+  border: 2px solid black;
 }
 
-.transactionTable th,
-.transactionTable td {
-  border: 1px solid #000000;
-  padding: 8px;
+.thead_row_item {
+  background-color: black;
+  color: white;
+  padding: 21px 64px;
+}
+
+.tbody_row_item {
   text-align: center;
-  min-width: 200px;
+  border: 2px solid black;
+  padding: 25px 25px;
+  font-weight: 700;
 }
-
-.transactionTable th {
-  background-color: #131313;
-  text-align: center;
-  color: #fff;
-}
-
-.transactionTable tr:nth-child(2n + 1) {
-  background-color: #a8a8a8;
+.even_color {
+  background-color: #d3d3d3;
 }
